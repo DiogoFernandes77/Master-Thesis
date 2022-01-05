@@ -1,0 +1,6 @@
+1- Padding com 0
+
+2- Recurrent neural network
+
+https://blog.floydhub.com/a-beginners-guide-on-recurrent-neural-networks-with-pytorch/
+

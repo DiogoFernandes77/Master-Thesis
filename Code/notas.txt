@@ -1,0 +1,4 @@
+Faltar dados nos ensaios duvidosos, problema a resolver
+Problema do filtro sobre filtro sobre filtro, usar uma rede para cada mudança causa este problema, 99% * 99% * 99% = tipo 70%
+Problema de juntar os ensaios duvidosos no mesmo ficheiro 
+
