@@ -28,4 +28,4 @@ class CustomDataset(Dataset):
         #     sample = self.transform(sample)
         # if self.target_transform:
         #     label = self.target_transform(label)
-        return sample, label
+        return sample, label, self.sample_labels.iloc[idx, 0]
