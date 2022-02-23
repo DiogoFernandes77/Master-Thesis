@@ -12,11 +12,11 @@ class NeuralNetwork(nn.Module):
         self.flatten = nn.Flatten()
         
         self.linear_relu_stack = nn.Sequential( #nota futura: nº layers = 2, nº nodes = 75% do input
+            nn.Linear(1030, 515),
+            nn.Sigmoid(),
             nn.Linear(515, 385),
-            nn.ReLU(),
-            nn.Linear(385, 290),
-            nn.ReLU(),
-            nn.Linear(290, 1),
+            nn.Sigmoid(),
+            nn.Linear(385, 1),
             nn.Sigmoid(),#necessary for bceloss
         )
 
@@ -32,7 +32,8 @@ def train_loop(dataloader, model, loss_fn, optimizer):
     for batch, (X, y, z) in enumerate(dataloader):
         # Compute prediction and loss
         X, y = X.to(device), y.to(device) #moving to device(GPU)
-        
+        # print("File name: ", end=' ')
+        # print(z)
         pred = model(X.float()).squeeze(1)
         print(pred)
         
@@ -105,8 +106,8 @@ model = NeuralNetwork().to(device)
 
 #Hyperparameters
 learning_rate = 1e-4
-batch_size = 1
-epochs = 20
+batch_size = 4
+epochs = 100
 
 #Loss Function
 loss_fn = nn.BCELoss() #BCE precisa de uma funcçao sigmoid na ultima layer
