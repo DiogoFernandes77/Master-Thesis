@@ -12,12 +12,12 @@ class NeuralNetwork(nn.Module):
         self.flatten = nn.Flatten()
         
         self.linear_relu_stack = nn.Sequential( #nota futura: nº layers = 2, nº nodes = 75% do input
-            nn.Linear(1030, 515),
-            nn.Sigmoid(),
-            nn.Linear(515, 385),
-            nn.Sigmoid(),
-            nn.Linear(385, 1),
-            nn.Sigmoid(),#necessary for bceloss
+            nn.Linear(39, 39),
+            nn.ReLU(),
+            nn.Linear(39, 39),
+            nn.ReLU(),
+            nn.Linear(39, 1),
+            nn.ReLU(),
         )
 
     def forward(self, x):
@@ -64,17 +64,20 @@ def test_loop(dataloader, model, loss_fn):
             X, y = X.to(device), y.to(device)
             
             pred = model(X.float()).squeeze(1)
-            print("Predicton: ", end=' ')
-            print(pred.item(), end=' ')
-            print("label: ", end=' ')
-            print(y.item(), end=' ')
-            print("File name: ", end=' ')
-            print(z)
-
+            for x in range(pred.size(dim=0)):
+                
+                print("Predicton: ", end=' ')
+                print(pred[x].item(), end=' ')
+                print("label: ", end=' ')
+                print(y[x].item(), end=' ')
+                print("File name: ", end=' ')
+                print(z[x])
+            
             
             test_loss += loss_fn(pred, (y.float()))
             
-            test = (pred > 0.5).int()
+                
+            test = (pred > 0.5).int() #(pred > 0.5) com logits
             
             correct += torch.eq(test, y).sum().float()
             
@@ -105,12 +108,16 @@ model = NeuralNetwork().to(device)
 #--------------------------------------------Parameters--------------------------------------------#
 
 #Hyperparameters
-learning_rate = 1e-4
-batch_size = 4
+learning_rate = 1e-2
+batch_size = 32
 epochs = 100
 
 #Loss Function
-loss_fn = nn.BCELoss() #BCE precisa de uma funcçao sigmoid na ultima layer
+
+pos_weight = torch.tensor([25/10215]).to(device)#neg/pos pos = 10215 neg = 25
+loss_fn = nn.BCEWithLogitsLoss(pos_weight=pos_weight)
+#loss_fn = nn.BCELoss() #BCE precisa de uma funcçao sigmoid na ultima layer
+
 #loss_fn = nn.CrossEntropyLoss() #Já tem softmax embutido
 
 
@@ -121,11 +128,11 @@ optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate) #Stochastic Gr
 full_dataset = CustomDataset(annotations_file, data_dir)
 badbox_dataset = CustomDataset(badbox_annotations_file, badbox_dir)
 
-train_size = int(0.8 * len(badbox_dataset))
-test_size = len(badbox_dataset) - train_size
-train_dataset, test_dataset = torch.utils.data.random_split(badbox_dataset, [train_size, test_size])
+train_size = int(0.8 * len(full_dataset))
+test_size = len(full_dataset) - train_size
+train_dataset, test_dataset = torch.utils.data.random_split(full_dataset, [train_size, test_size])
 
-badbox_dataloader = DataLoader(badbox_dataset, batch_size, shuffle=True)
+badbox_dataloader = DataLoader(full_dataset, batch_size, shuffle=True)
 train_dataloader = DataLoader(train_dataset, batch_size, shuffle=True)
 test_dataloader = DataLoader(test_dataset, batch_size, shuffle=True)
 
@@ -138,10 +145,13 @@ test_dataloader = DataLoader(test_dataset, batch_size, shuffle=True)
 
 for t in range(epochs):
     print(f"Epoch {t+1}\n-------------------------------")
-    
     train_loop(train_dataloader, model, loss_fn, optimizer)
     print("test")
     test_loop(test_dataloader, model, loss_fn)
+    
+    
+    
+    
     
     
 print("Done!")

@@ -1,0 +1,3 @@
+However, when the rotational speed is changing, the frequency bandwidth of each individual harmonic becomes wider.
+ Because each individual harmonic bandwidth becomes wider as the speed changes, some frequency components might overlap.
+  The resulting FFT power spectrum becomes blurred and can no longer help you identify characteristic vibration components
