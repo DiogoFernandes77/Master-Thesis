@@ -1,4 +1,3 @@
-from calendar import c
 import csv
 import os
 
@@ -32,7 +31,7 @@ def main():
                         except:
                             continue
                         
-                        if(header[8] == '2'):
+                        if(header[8] == '2' or header[8] == '1'):
                             continue
                             
                         
@@ -147,7 +146,6 @@ def main():
                         
                         if(header[8] == '0'):
                             bad+=1
-                        
                        
                         
                         #escrever no labels.csv
@@ -162,9 +160,9 @@ def main():
                         print("Total ensaios = " + str(count))
                         print("Total más = " + str(bad))
                         #contador de ficheiros
-                        if(count >= 40):
-                            print("fim")
-                            return 1;
+                        # if(count >= 138):
+                        #     print("fim")
+                        #     return 1;
 
                         
                         

@@ -17,7 +17,7 @@ class NeuralNetwork(nn.Module):
             nn.Linear(39, 39),
             nn.ReLU(),
             nn.Linear(39, 1),
-            nn.ReLU(),
+            
         )
 
     def forward(self, x):
@@ -58,12 +58,15 @@ def test_loop(dataloader, model, loss_fn):
     size = len(dataloader.dataset)
     num_batches = len(dataloader)
     test_loss, correct = 0, 0
-
+    
     with torch.no_grad():
         for X, y, z in dataloader:
             X, y = X.to(device), y.to(device)
             
             pred = model(X.float()).squeeze(1)
+            
+            pred = torch.nn.functional.sigmoid(pred)#converte logits em probabilidade
+            
             for x in range(pred.size(dim=0)):
                 
                 print("Predicton: ", end=' ')
@@ -72,9 +75,10 @@ def test_loop(dataloader, model, loss_fn):
                 print(y[x].item(), end=' ')
                 print("File name: ", end=' ')
                 print(z[x])
-            
+
             
             test_loss += loss_fn(pred, (y.float()))
+            
             
                 
             test = (pred > 0.5).int() #(pred > 0.5) com logits
@@ -109,13 +113,13 @@ model = NeuralNetwork().to(device)
 
 #Hyperparameters
 learning_rate = 1e-2
-batch_size = 32
-epochs = 100
+batch_size = 1
+epochs = 300
 
 #Loss Function
 
-pos_weight = torch.tensor([25/10215]).to(device)#neg/pos pos = 10215 neg = 25
-loss_fn = nn.BCEWithLogitsLoss(pos_weight=pos_weight)
+#pos_weight = torch.tensor([25/10215]).to(device)#neg/pos pos = 10215 neg = 25
+loss_fn = nn.BCEWithLogitsLoss()
 #loss_fn = nn.BCELoss() #BCE precisa de uma funcçao sigmoid na ultima layer
 
 #loss_fn = nn.CrossEntropyLoss() #Já tem softmax embutido
