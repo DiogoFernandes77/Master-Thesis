@@ -2,3 +2,20 @@ Faltar dados nos ensaios duvidosos, problema a resolver
 Problema do filtro sobre filtro sobre filtro, usar uma rede para cada mudança causa este problema, 99% * 99% * 99% = tipo 70%
 Problema de juntar os ensaios duvidosos no mesmo ficheiro 
 
+
+
+grafico de ordem,rpm fixo, ordem indica o numero de impactos por volta. fotografia de 500ms, aceleração = binario positivo, desaceleração = binario negativo
+grafico com tracking para uma ordem especifica  aumentar a rotação
+
+
+
+duvidas:
+O h1 corresponde à frequencia fundamental ou já ao dobro
+
+porque o uso de uma rede neural, se ja tem os limites bem definidos não seria só ver se o valor passa um certo limite.
+
+
+3-ver como um todo!!!
+1- encontrar limites melhores
+2- detetar problemas em uma mudança que está dependente das outras, apesar de nao estarem engatadas estao a rodar livremente com um binario baixo
+

@@ -12,11 +12,12 @@ def main():
     current_dir = os.getcwd()
     #sample_dir = current_dir + '/Sample prod' #path where raw samples are
     sample_dir = current_dir + '/sample'
-    data_dir = current_dir + '/data'
+    data_dir = current_dir + '/tmp'
     for f in os.listdir(data_dir):
         os.remove(os.path.join(data_dir, f))
-    count =0;
-    bad = 0;
+    count =0
+    bad = 0
+    skip = False
     if(os.path.exists(sample_dir)):
         for dirpath, dirname, filename in os.walk(sample_dir, topdown=False):
             with open(data_dir + '/labels.csv', "w") as l:
@@ -34,10 +35,14 @@ def main():
                         if(header[8] == '2' or header[8] == '1'):
                             continue
                             
-                        
+                        skip = False
                         for row_raw in csv_file:
                             row = row_raw[0].split(';')
-                            
+                            if(row[0] == 'F0' and row[4] == '110'):
+                                value =  float(row[6])
+                                if value < 0:
+                                    skip = True
+                                    break
                             if(row[0] == 'F'):
                                 if(row[4] == '105'):
                                     if(row[2] == '6'):
@@ -133,6 +138,15 @@ def main():
                                                 sample.append(float(row[5]))
                                         if(row[2] == '7'):
                                             sample.append(normalize(float(row[5]),0,0.1))    
+                            elif(row[0] == 'FO'):
+                                    
+                                min = -50
+                                max = 50
+                                # if(float(row[6]) > max):
+                                #     print(str(float(row[6])) + " > " + max)
+                                
+                                
+                                sample.append(normalize(float(row[6]),min,max))
                             
                             
                             
@@ -142,7 +156,7 @@ def main():
                     
                     
                     
-                    if(len(sample) == 39):
+                    if(len(sample) == 67 and not skip):
                         
                         if(header[8] == '0'):
                             bad+=1

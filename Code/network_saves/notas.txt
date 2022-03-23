@@ -2,14 +2,14 @@ valor frente do posage:
 0 = nao ok;
 1= ok
 2 = duvida (repete teste)
-
+pag.99
 
 E;2021/10/12 09:08:49;JT;40;04;270419;1;POSAGE1;1;0;P;GAMME_JT4;JT4;CYCLE_JT4_VibratorioB;Seuil_JT4_v10_546;3;0;OPERAT
 #bloco de passagem de mudanças(parametro,limmite min,limite max)(5->6) 7 = marcha atras
 M;0;5;6;0;0.206000;;0.500000;(tempo de passagem,valor limite)
 M;0;5;6;1;0.000000;;;
 M;0;5;6;2;0.000000;;;
-M;0;5;6;3;164.956833;;200.000000;(força de sincronismo,limite)
+M;0;5;6;3;164.956833;;200.000000;(força de sincronismo,limite) limite 500
 M;0;5;6;4;7.057778;;15.000000;(impulso de sincronismo,limite maximo)
 M;0;5;6;5;0.000000;;;
 M;0;5;6;6;3.415164;;;

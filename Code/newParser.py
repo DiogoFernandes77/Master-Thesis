@@ -22,17 +22,21 @@ def main():
         for dirpath, dirname, filename in os.walk(sample_dir, topdown=False):
             with open(data_dir + '/labels.csv', "w") as l:
                 for name in filename:
-                    
+                    print("file name: " + name)
                     with open(sample_dir + '/' + name, "r") as f:
                         csv_file = csv.reader(f)
                         sample = []
+                        passagem = {}
+                        oldgear=''
+                        newgear=''
+                        
                         try:
                             #print(name)
                             header = csv_file.__next__()[0].split(';')
                         except:
                             continue
                         
-                        if(header[8] == '2'):
+                        if(header[8] == '2' or header[8] == '0'):
                             continue
                             
                         
@@ -134,16 +138,41 @@ def main():
                                                 sample.append(float(row[5]))
                                         if(row[2] == '7'):
                                             sample.append(normalize(float(row[5]),0,0.1))    
-                            
-                            
-                            
-                            
+                            elif(row[0] == 'FO'):
                                 
-                        
+                                
+                                
+                                min = -50
+                                max = 50
+                                # if(float(row[6]) > max):
+                                #     print(str(float(row[6])) + " > " + max)
+                                
+                                
+                                sample.append(normalize(float(row[6]),min,max))
+                            elif(row[0] == 'M'):
+                                newgear = row[2] + row[3]
+                                if(newgear != oldgear):
+                                    if(passagem):
+                                        print("dicionario= " + str(passagem.values()))
+                                        #transferir valores para sampel
+                                        for value in passagem.values():
+                                            sample.append(value)
+                                    passagem = {}
+                                    
+                                if(row[4] == '0' or row[4] == '4'):
+                                    passagem[row[4]] = normalize(float(row[5]),0,float(row[7]))
+                                
+                                oldgear = newgear    
+                                    
+                                
+                            
+                    #ultimos valores em passagem
+                    for value in passagem.values():
+                        sample.append(value)    
                     
                     
                     
-                    if(len(sample) == 39):
+                    if(len(sample) == 88):
                         
                         if(header[8] == '0'):
                             bad+=1
@@ -162,7 +191,7 @@ def main():
                         print("Total ensaios = " + str(count))
                         print("Total más = " + str(bad))
                         #contador de ficheiros
-                        if(count >= 40):
+                        if(count >= 1000):
                             print("fim")
                             return 1;
 
