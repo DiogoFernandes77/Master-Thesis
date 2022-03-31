@@ -22,7 +22,7 @@ def main():
         for dirpath, dirname, filename in os.walk(sample_dir, topdown=False):
             with open(data_dir + '/labels.csv', "w") as l:
                 for name in filename:
-                    print("file name: " + name)
+                    
                     with open(sample_dir + '/' + name, "r") as f:
                         csv_file = csv.reader(f)
                         sample = []
@@ -153,26 +153,36 @@ def main():
                                 newgear = row[2] + row[3]
                                 if(newgear != oldgear):
                                     if(passagem):
-                                        print("dicionario= " + str(passagem.values()))
-                                        #transferir valores para sampel
+                                        #print("dicionario= " + str(passagem.values()))
+                                        
+                                        #transferir valores para sample
                                         for value in passagem.values():
                                             sample.append(value)
                                     passagem = {}
                                     
-                                if(row[4] == '0' or row[4] == '4'):
-                                    passagem[row[4]] = normalize(float(row[5]),0,float(row[7]))
-                                
+                                if(row[4] == '30'):
+                                    passagem[row[4]] = normalize(float(row[5]),0,25)
+                                if(row[4] == '26'):
+                                    passagem[row[4]] = normalize(float(row[5]),-10000,2800)
+                                if(row[4] == '4'):
+                                    passagem[row[4]] = normalize(float(row[5]),0,40)
+                                if(row[4] == '3'):
+                                    passagem[row[4]] = normalize(float(row[5]),-10,500)    
+                                if(row[4] == '0'):
+                                    passagem[row[4]] = normalize(float(row[5]),0,2)
                                 oldgear = newgear    
-                                    
-                                
+                        
+                        #ultimos valores em passagem
+                        for value in passagem.values():
+                            sample.append(value) 
+                                   
+                             
                             
-                    #ultimos valores em passagem
-                    for value in passagem.values():
-                        sample.append(value)    
+                      
                     
                     
                     
-                    if(len(sample) == 88):
+                    if(len(sample) == 102):
                         
                         if(header[8] == '0'):
                             bad+=1
@@ -195,7 +205,8 @@ def main():
                             print("fim")
                             return 1;
 
-                        
+    print("maximo = " + str(tmax) )
+    print("minimo = " + str(tmin) )                         
                         
 
     

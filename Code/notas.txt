@@ -10,7 +10,7 @@ grafico com tracking para uma ordem especifica  aumentar a rotação
 
 
 duvidas:
-O h1 corresponde à frequencia fundamental ou já ao dobro
+O h1 corresponde à frequencia fundamental
 
 porque o uso de uma rede neural, se ja tem os limites bem definidos não seria só ver se o valor passa um certo limite.
 

@@ -11,7 +11,7 @@ def normalize(value,min,max):
 def main():
     current_dir = os.getcwd()
     #sample_dir = current_dir + '/Sample prod' #path where raw samples are
-    sample_dir = current_dir + '/sample'
+    sample_dir = current_dir + '/sampleGrande'
     data_dir = current_dir + '/tmp'
     for f in os.listdir(data_dir):
         os.remove(os.path.join(data_dir, f))
@@ -26,6 +26,9 @@ def main():
                     with open(sample_dir + '/' + name, "r") as f:
                         csv_file = csv.reader(f)
                         sample = []
+                        passagem = {}
+                        oldgear=''
+                        newgear=''
                         try:
                             #print(name)
                             header = csv_file.__next__()[0].split(';')
@@ -147,7 +150,33 @@ def main():
                                 
                                 
                                 sample.append(normalize(float(row[6]),min,max))
-                            
+                            elif(row[0] == 'M'):
+                                newgear = row[2] + row[3]
+                                if(newgear != oldgear):
+                                    if(passagem):
+                                        #print("dicionario= " + str(passagem.values()))
+                                        
+                                        #transferir valores para sample
+                                        for value in passagem.values():
+                                            sample.append(value)
+                                    passagem = {}
+                                    
+                                if(row[4] == '30'):
+                                    passagem[row[4]] = normalize(float(row[5]),0,25)
+                                if(row[4] == '26'):
+                                    passagem[row[4]] = normalize(float(row[5]),-10000,2800)
+                                if(row[4] == '4'):
+                                    passagem[row[4]] = normalize(float(row[5]),0,40)
+                                if(row[4] == '3'):
+                                    passagem[row[4]] = normalize(float(row[5]),-10,500)    
+                                if(row[4] == '0'):
+                                    passagem[row[4]] = normalize(float(row[5]),0,2)
+                                
+                                oldgear = newgear    
+                        
+                        #ultimos valores em passagem
+                        for value in passagem.values():
+                            sample.append(value) 
                             
                             
                             
@@ -156,7 +185,7 @@ def main():
                     
                     
                     
-                    if(len(sample) == 67 and not skip):
+                    if(len(sample) == 102 and not skip):
                         
                         if(header[8] == '0'):
                             bad+=1

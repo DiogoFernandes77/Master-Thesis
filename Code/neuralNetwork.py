@@ -12,11 +12,11 @@ class NeuralNetwork(nn.Module):
         self.flatten = nn.Flatten()
         
         self.linear_relu_stack = nn.Sequential( #nota futura: nº layers = 2, nº nodes = 75% do input
-            nn.Linear(67, 67),
+            nn.Linear(102, 102),
             nn.ReLU(),
-            nn.Linear(67, 67),
+            nn.Linear(102, 102),
             nn.ReLU(),
-            nn.Linear(67, 1),
+            nn.Linear(102, 1),
             
         )
 
@@ -115,7 +115,7 @@ model = NeuralNetwork().to(device)
 #Hyperparameters
 learning_rate = 1e-2
 batch_size = 1
-epochs = 300
+epochs = 250
 
 #Loss Function
 
