@@ -26,7 +26,7 @@ Estas caixas são constituídas principalmente por 4 órgãos (fig. \ref{caixa_v
 \begin{figure}[H]
 \centering
 \includegraphics[scale=1.0]{figs/caixa}
-\caption{Caixa velocidades e seus órgãos: cárter(verde), carretos(branco), comandos internos(amarelo), diferencial(roxo)}\label{caixa_velocidades}
+\caption{Caixa velocidades e seus órgãos: cárter(verde), carretos(branco), comandos internos(amarelo), diferencial(roxo) \cite{formacaoCaixa}}\label{caixa_velocidades}
 \end{figure}
 
 O cárter têm 3 funções: proteger os carretos da caixa de velocidade, criar um espaço impermeável para poder lubrificar os carretos e resistir às forças de engrenamento nos apoios dos rolamentos. A lubrificação é um ponto crucial numa caixa de velocidades pois permite reduzir a fricção, isto é, o desgaste das peças. Também permite evitar a gripagem\footnote{Efeito produzido pela fricção de duas superfícies metálicas em contacto, e que, por falta de uma lubrificação suficiente, aderem uma à outra.} das peças em movimento.
@@ -37,7 +37,7 @@ Mudar de mudança significa mudar a relação de transmissão, quanto maior for 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=1.0]{figs/carretos}
-\caption{Carreto}\label{carreto}
+\caption{Carreto \cite{formacaoCaixa}}\label{carreto}
 \end{figure}
 
 O comando interno (fig. \ref{comando interno}) é o que permite fazer a seleção de velocidade, é um conjunto de peças que é acionado pelo condutor com ajuda da alavanca de mudanças, quando o veículo se encontra em deslocamento. O eixo secundário, para cada velocidade, tem um carreto louco que é capaz de girar livremente à volta do eixo secundário e está engrenado com um carreto fixo do eixo primário. O movimento da alavanca de mudanças vai levar à deslocação de eixos/forquilhas que estão diretamente engatados no anel de arrasto e que por sua vez provocará a transferência do anel de arrasto. Este anel é responsável por transmitir o movimento de rotação do carreto louco até ao eixo secundário. Como o carreto louco e o anel de arrasto não têm a mesma velocidade de rotação, para evitar qualquer risco de rutura, sincronizam-se as velocidades de rotação antes do engrenamento. Isto é feito utilizando um sincronizador, que com o atrito, ao encostar ao carreto as rotações são sincronizadas.
@@ -45,7 +45,7 @@ O comando interno (fig. \ref{comando interno}) é o que permite fazer a seleçã
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.4]{figs/comando_interno}
-\caption{comando interno}\label{comando interno}
+\caption{comando interno \cite{formacaoCaixa}}\label{comando interno}
 \end{figure}
 
 O diferencial serve para que numa curva, como a roda exterior percorre uma maior distância do que a roda interior, a velocidade de rotação da roda exterior é maior do que a roda interior. O diferencial permite, nas curvas, distribuir a potência a cada roda, podendo inclusive uma roda permanecer em repouso enquanto a outra recebe toda a potência e movimento gerado pelo motor. Isto acontece porque a força tende a “ seguir o caminho mais fácil ”.
@@ -119,7 +119,7 @@ Com base no exemplo dado em \cite{orderAnalysis2} e para melhor entender a anál
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.3]{figs/power_spectrum1}
-\caption{Espectro de potência de uma caixa de velocidades de uma eólica a 60Hz}\label{power espectrum 1}
+\caption{Espectro de potência de uma caixa de velocidades de uma eólica a 60Hz \cite{orderAnalysis2}}\label{power espectrum 1}
 \end{figure}
 
 
@@ -128,7 +128,7 @@ No entanto, à medida que a velocidade diminui para 50Hz, o 4º harmónico do es
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.3]{figs/power_spectrum2}
-\caption{Espectro de potência de uma caixa de velocidades de uma eólica a 50Hz}\label{power espectrum 2}
+\caption{Espectro de potência de uma caixa de velocidades de uma eólica a 50Hz \cite{orderAnalysis2}}\label{power espectrum 2}
 \end{figure}
 
 Na análise de ordem o sinal é primeiro reamostrado no domínio angular. A reamostragem combina as medições de velocidade tiradas de um taquímetro na máquina com as medições de vibração e interpola as medições de vibração em um ponto de dados por fração de rotação angular. As medições de vibração estão agora no domínio angular em vez de estarem no domínio de tempo. Uma vez no domínio angular uma FFT pode ser realizada nas medições de vibração para obter o que é conhecido por um espectro de ordem.
@@ -137,11 +137,11 @@ Na análise de ordem o sinal é primeiro reamostrado no domínio angular. A ream
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.3]{figs/order_spectrum}
-\caption{Espectro de ordem de uma caixa de velocidades de uma eólica a 60Hz(topo) e 50Hz(fundo)}\label{power espectrum 3}
+\caption{Espectro de ordem de uma caixa de velocidades de uma eólica a 60Hz(topo) e 50Hz(fundo) \cite{orderAnalysis2}}\label{power espectrum 3}
 \end{figure}
 
 
-Com o espectro de ordem torna-se mais fácil monitorizar o 4º harmónico pois este não se desloca conforme a velocidade de rotação aumenta ou diminui. Ordem 1 corresponde a 1x a velocidade de rotação, todas as outras ordens são múltiplas da primeira, sendo que ordem 4 corresponde a 4x a velocidade de rotação.
+Com o espectro de ordem torna-se mais fácil monitorizar o 4º harmónico pois este não se desloca conforme a velocidade de rotação aumenta ou diminui \ref{power espectrum 3}. Ordem 1 corresponde a 1x a velocidade de rotação, todas as outras ordens são múltiplas da primeira, sendo que ordem 4 corresponde a 4x a velocidade de rotação.
 
 \subsection{Cepstrum}
 
@@ -171,7 +171,7 @@ Segue-se um exemplo para demonstrar a capacidade do Cepstrum como ferramenta par
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.35]{figs/spectrum_cepstrum1}
-\caption{Espectro de potência do sinal vibratório de uma caixa de velocidades (1 velocidade)}\label{spectrum Cepstrum1}
+\caption{Espectro de potência do sinal vibratório de uma caixa de velocidades (1 velocidade) \cite{Notes2}}\label{spectrum Cepstrum1}
 \end{figure}
 
 
@@ -181,7 +181,7 @@ O processo de encontrar as famílias de harmónicos é muito mais fácil no dom�
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.35]{figs/spectrum_cepstrum2}
-\caption{Cepstrum do sinal vibratório de uma caixa de velocidades (1 velocidade)}\label{spectrum Cepstrum2}
+\caption{Cepstrum do sinal vibratório de uma caixa de velocidades (1 velocidade) \cite{Notes2}}\label{spectrum Cepstrum2}
 \end{figure}
 
 \subsection{Kurtosis}
@@ -215,11 +215,65 @@ Caso uma caixa de velocidade tenha uma engrenagem com um defeito num dente, no e
 %O harmónico corresponde a uma excitação que ocorre n vezes por revolução da cambota para uma determinada mudança e a sua frequência é %dada por: $f_{Hn}^{N}=n\frac{N}{60}$ , onde N representa os rpm  e Hn a ordem do harmónico. Num motor a 4 tempos o harmónico H2 (ordem %2) é o mais energético devido ao facto de haver 2 explosões por rotação da cambota.
 
 \subsection{Limites de Passagem de Mudança}
+A seguinte secção tem como base o documento \cite{passagemMud} . 
 
-A passagem de mudança de uma caixa de velocidade tem limites por forma a determinar se existem anomalias, as fases mais cruciais são o sincronismo, crabotagem e batente. As fases de sincronismo e crabotagem avaliam a qualidade e o esforço, a fase de batente é aprendida com produção série e é determinada pelo mecanismo de comando, sendo que um valor pequeno de batente significa falta de componentes.
+A passagem de mudança de uma caixa de velocidade tem limites por forma a determinar se existem anomalias. As fases mais cruciais são o sincronismo, crabotagem e batente. As fases de sincronismo e crabotagem avaliam a qualidade e o esforço, a fase de batente é aprendida com a produção em série e é determinada pelo mecanismo de comando, sendo que um valor pequeno de batente significa falta de componentes.
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.3]{figs/Limites_Passagem}
+\caption{Fases na passagem de mudança \cite{passagemMud}}\label{fases}
+\end{figure}
+
+
+No gráfico produzido pelo banco (fig. \ref{fase2}) é possível identificar as diversas fases de passagem(na legenda das imagens seguintes VE = RPM, EffPas = esforço em N e PPas = distancia em milímetros):
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.3]{figs/Limites_Passagem2}
+\caption{Gráfico produzido pelo banco \cite{passagemMud}}\label{fase2}
+\end{figure}
 
 
 
+\begin{enumerate}
+\item Desengate de velocidade, é aplicado força para desengatar a mudança;
+\item Fase de engate, começa-se a ver uma variação de velocidade na árvore primária;
+\item Sincronismo, normalmente caraterizado por um pico de esforço de passagem,pouco deslocamento de passagem e uma subida repentina de RPM na árvore primária;
+\item Crabotagem, apresenta um pico de esforço mas por vezes  não é encontrado por fazer um voo (quando os dentes do anel de arrasto e do pinhão estão alinhados);
+\item Batente, esforço contra o limite mecânico da caixa, seguido do aliviar da força e retorno da passagem;
+\end{enumerate}
+
+Os limites medidos são os seguintes: esforço máximo de sincronismo, que é determinado pelo pico  máximo de esforço medido durante o sincronismo (fig. \ref{esforço}); impulso de sincronismo, que é o declive da curva, determina se o esforço é repentino (fig. \ref{imp}); trainée, que é a desaceleração da árvore primária com a embraiagem aberta, mede se existe muita prisão na rotação que pode ser causado por peças que façam atritos em excesso (fig. \ref{Trainee}; course butée ou batente, é o ângulo medido depois de aplicar a força e bater no batente mecânico do mecanismo de comando, serve para detetar a falta de anéis de sincronismo (fig. \ref{batente}) ; tempo de passagem, caso uma mudança demore muito tempo, permite que a
+fase de sincronismo seja feita mais lentamente permitindo baixar o esforço máximo. Sendo que a passagem tem que ser um equilíbrio para manter o tempo máximo de passagem por forma a dar tempo ao sincronismo, e não ser rápida demais fazendo um pico de esforço máximo.
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{figs/Esforço_Max}
+\caption{Esforço máximo de sincronismo \cite{passagemMud}}\label{esforço}
+\end{figure}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{figs/ImpulsoSincronismo}
+\caption{Impulso de sincronismo \cite{passagemMud}}\label{imp}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.3]{figs/Trainée}
+\caption{Trainée \cite{passagemMud}}\label{Trainee}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{figs/course}
+\caption{Course butée ou batente \cite{passagemMud}}\label{batente}
+\end{figure}
 
 \section{Machine Learning}
 
@@ -259,10 +313,136 @@ Muitos modelos de \ac{ml} são definidos pela presença ou não de influência h
 \item \textbf{Aprendizagem semi-supervisionada}: um meio termo entre aprendizagem supervisionada e não supervisionada. O conjunto de dados contém  dados estruturados e não estruturados, que irão guiar o algoritmo a tirar conclusões independentes. O uso dos dois tipos de dados num conjunto de dados para treino permite ao algoritmo de \ac{ml} aprender a rotular conjunto de dados não rotulados.
 
 \end{itemize}
+\subsection{Regressão e Classificação Ridge}\label{RCR}
+È um método designado para regressão no qual o valor alvo é esperado ser uma combinação linear de features \footnote{Recurso em português, é uma propriedade individual mensurável ou característica de um fenómeno.}.
+Os mínimos quadrados ordinários (Ordinary Least Squares)tem como objetivo estimar os coeficientes $\beta$  em um modelo de regressão \ref{regress}. Define-se a função de erro como a soma dos quadrados do erro, diferença entre os valores alvo observados no conjunto de dados e o valor alvo previsto pela aproximação linear. O objetivo é encontrar os coeficientes $\beta$ que minimizam a função objetiva eq.\ref{obj_func}. O minimo da função é quando o declive é 0 logo podemos encontrar os coeficientes $\beta$ igualando o declive a 0 e resolvendo para $\hat{\beta}$ (vetor dos coeficientes). Este documento não tem como objetivo explicar muito detalhadamente a matemática que está por trás, no entanto, $\hat{\beta}$ é calculado usando a eq. \ref{vetor_coeficientes} \cite{regression1}.
+\begin{equation}
+y_{i} = \beta _{1}x_{i1} + \beta _{2}x_{i2} + ... + \beta _{p}x_{ip} + \varepsilon 
+\label{regress}
+\end{equation}
+
+\begin{equation}
+S(\beta ) = \sum_{i=1}^{n}\left | y - \sum_{j=1}^{p}X_{ij}\beta _{j} \right |^{2} =\left \| y - X\beta  \right \|^{2}
+\label{obj_func}
+\end{equation}
+ 
+\begin{equation}
+\hat{\beta} = (X^{T}X)^{-1}X^{T}y)
+\label{vetor_coeficientes}
+\end{equation} 
+ 
+ 
+A regressão Ridge pertence a uma família de métodos, quadrados mínimos regularizados RLS, usados para resolver problemas de quadrados mínimos ao usar a regularização para restringir ainda mais a solução resultante.
+O objetivo destes métodos é abordar alguns dos problemas dos mínimos quadrados ordinários que surgem em 2 situações. A primeira é quando o número de variáveis no sistema linear é superior ao número de observações. Neste cenário o problema de OLS é mal formulado("ill-posed") e por isso impossível de adaptar porque o problema associado de otimização tem número infinito de soluções. O RLS permite a introdução de ainda mais restrições determinando uma solução única.  A segunda situação ocorre quando o número de variáveis não excede o número de observações, mas o modelo sofre de pouca generalização. O RLS pode ser usado nestes casos para melhorar a generalização do modelo restringindo-o no tempo de treino.
+Em comparação com o OLS a regressão ridge não é imparcial, aceita uma tendência para reduzir a variância e o erro quadrático médio e ajuda a melhorar a precisão da previsão. 
+Para problemas de classificação é usado um classificador que converte os alvos binários para {-1, 1} e depois trata o problema como uma tarefa de regressão. A classe prevista corresponde ao sinal da regressão prevista \cite{scikit-learn}.
+
+\subsection{SGD - Stochastic Gradient Descent}
+
+Stochastic Gradient Descent ou SGD é um algoritmo muito comum usado em diferentes algoritmos de Machine Learning e é a base das redes neurais.
+
+O objetivo principal do ``Gradient Descent''  é encontrar o mínimo de uma função, ``gradient'' significa declive de uma superfície logo "gradient descent" significa descer o declive até encontrar o ponto mais baixo dessa superfície.
+
+O objetivo da regressão linear, como dito em \ref{RCR}, é minimizar a soma dos quadrados do erro . Sabemos que a função chega ao seu valor mínimo quando o declive é 0 e com esta técnica resolvemos a regressão linear e aprendemos o coeficientes $\beta$. O mesmo problema pode ser resolvido com a técnica de gradient descent.
+
+A ideia é começar num ponto aleatório da nossa função e encontrar uma forma de atualizar este ponto de modo a que em cada iteração vamos descendo o declive. Os passos são:
+
+\begin{enumerate}
+\item calcular o declive (``gradient'') da função alvo com respeito a cada variável/feature, o que equivale a calcular a derivada;
+\item escolher um valor inicial para as variáveis;
+\item atualizar a função com os valores das variáveis para a iteração atual
+\item calcular o tamanho do salto para cada variável \textbf{step size = gradient * learning rate};
+\item calcular os novos valores das variáveis \textbf{new params = old params - step size};
+\item repetir passos 3 ao 5 até o declive ser quase 0.
+\end{enumerate}
+
+O learning rate \footnote{Taxa de aprendizagem.} é uma variável flexível que influencia a convergência do algoritmo.
+
+O gradient descent para grandes quantidades de dados é lento. Stochastic significa aleatório, o SGD em cada iteração seleciona um ponto aleatório do nosso conjunto de dados para reduzir o número de computações necessárias \cite{sgd1}.
+
+
+\subsection{Regressão Logística}
+
+A regressão logística é um dos algoritmos de machine learning mais populares, pertence aos de categoria aprendizagem supervisionada e é usado frequentemente em problemas de classificação e análise preditiva. A regressão logística é similar com a regressão linear mas é usada de forma diferente, a regressão linear é usada para resolver problemas de regressão enquanto que a regressão logística é usada maioritariamente das vezes para resolver problemas de classificação, apesar de também poder ser usada para problemas de regressão.
+
+A expressão da regressão logística é dada por
+\begin{equation}
+\mathit{p} (x) =\frac{1}{1+e^{-(\beta _{0} + \beta _{1}x)}}
+\end{equation}
+onde p(x) representa a probabilidade de um evento acontecer.
+
+Esta expressão pode ser reescrita como o logaritmo dos odds (logit) eq. \ref{RLodds}. Odds é a probabilidade de ocorrência de um evento dividida pela probabilidade da não ocorrência do mesmo evento $odds(x) = \frac{p(x)}{1-p(x)}$
+
+
+\begin{equation}
+\frac{P}{1 - P} = e^{\beta _{0} + \beta _{1}x}
+\end{equation}
+
+\begin{equation}
+ln(\frac{P}{1 - P}) = \beta _{0} + \beta _{1}x
+\label{RLodds}
+\end{equation}
+No caso de haver mais que uma variável independente a expressão $\beta _{0} + \beta _{1}x$  é revisada para $\beta _{0} + \beta _{1}x + \beta _{2}x_2 +...+\beta _{m}x_m = \beta _{0} + \sum_{i=1}^{m} \beta_{i}x_i $
+
+Os coeficientes beta são habitualmente estimados através de máxima verossimilhança, no qual diferentes valores de beta são testados ao longo de múltiplas iterações. Estas iterações produzem a função de verossimilhança(log likelihood) e a regressão logística procura maximizar esta função para encontrar os melhores coeficientes. No contexto de machine learning, o negativo da função de verossimilhança é usada como função de custo, usando o processo de gradiente descendente para encontrar o máximo global \cite{logReg}.
+
+\subsection{Suport Vector Machines}
+Support vector machines é um algoritmo de machine learning da categoria aprendizagem supervisionada, que pode ser implementado para fins de classificação (mais comum) e regressão. As SVMs baseiam-se na ideia de encontrar um hiperplano que melhor divide um conjunto de dados em duas classes.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.4]{figs/svm1}
+\caption{Support vectors \cite{svm_tres}.}\label{svm1}
+\end{figure}
+
+Suport vectors (fig. \ref{svm1}) \footnote{Vetores de suporte em português.} são os pontos de cada classe mais próximos do hiperplano, os pontos que se forem removidos, a posição do hiperplano é alterada. Devido a isto são considerados elementos críticos do conjunto de dados.
+O hiperplano é a generalização do plano em diferentes números de dimensões, para um problema de classificação com apenas duas features
+, o hiperplano pode ser uma linha que separa as duas classes do conjunto de dados. Intuitivamente, quanto mais longe do hiperplano os pontos estiverem, mais confiança se tem que os pontos foram bem classificados.
+A distância entre o hiperplano e os support vectors é chamada de margem fig \ref{svm2}. Para encontrar o melhor hiperplano, o objetivo é escolher o hiperplano com maior margem, ou seja, o hiperplano mais afastado de ambos os membros mais próximos de cada classe \cite{svm_um}.
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.3]{figs/svm2}
+\caption{Margem de um hiperplano \cite{svm_tres}.}\label{svm2}
+\end{figure}
+
+Quando o conjunto de conjunto de dados não é linearmente separável é necessário mapear os dados numa dimensão superior.
+Como exemplo, temos o seguinte conjunto de dados que não é separável linearmente fig \ref{svm3}.
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.3]{figs/svm3}
+\caption{Conjunto de dados não separável linearmente \cite{svm_dois}.}\label{svm3}
+\end{figure}
+
+
+Se adicionarmos uma coordenada z que represente, como exemplo, o quadrado da distância dos pontos à origem $z = x^2+y^2$ e visualizarmos de novo o conjunto de dados podemos ver que é linearmente separável (fig. \ref{svm4}).
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.3]{figs/svm4}
+\caption{Mapeamento do conjunto de dados numa dimensão superior \cite{svm_dois}.}\label{svm4}
+\end{figure}
+
+Se a linha a roxo que separa os dados na dimensão mais alta for $z = k$ onde k é uma constante. Como, $z = x^2+y^2$  obtemos  $x^2+y^2 = k$ que é uma equação de uma circunferência. Logo, podemos projetar esta separação linear de uma dimensão mais alta, na dimensão original usando esta transformação (fig.\ref{svm5}) \cite{svm_dois}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.3]{figs/svm5}
+\caption{Projeção na dimensão original \cite{svm_dois}.}\label{svm5}
+\end{figure}
+
+A ideia é mapear o conjunto de dados em dimensões superior sucessivamente até encontrar um hiperplano que consiga separar o conjunto de dados. Encontrar a transformação correta para cada conjunto de dados não é fácil por isso recorremos ao uso de kernels, funções otimizadas para este tipo de problemas. 
+
+
+
+
 
 \subsection{Rede Neural Artificial}
 
-Uma rede neural Artificial (ANN, Artificial Neural Network) é um modelo de rede interconectado baseado nos processos de aprendizagem biológicos do cérebro com diversas aplicações na análise de dados, reconhecimento de padrões e controlo. 
+Segundo \textcite{ANN.Basic.Concepts}, uma rede neural Artificial (ANN, Artificial Neural Network) é um modelo de rede interconectado baseado nos processos de aprendizagem biológicos do cérebro com diversas aplicações na análise de dados, reconhecimento de padrões e controlo. 
 A unidade básica no qual o cérebro funciona é o neurónio, que transmite sinais elétricos de uma extremidade à outra. O cérebro humano tem aproximadamente 100 biliões de neurónios, tornando-se difícil de replicar este nível de complexidade com os computadores atuais. No entanto, existem seres vivos com menos neurónios e que conseguem sobreviver, como por exemplo, um Nematoda que tem 302 neurónios. Este nível de complexidade consegue-se replicar com os computadores atuais.
 
 Se pensarmos nos princípios operativos de um neurónio, ele recebe sinais e gera outros sinais. Isto é, recebem um ou mais sinais de entrada, realizam algum processamento, e produzem um sinal de saída. No entanto, o sinal de saída não é gerado de forma constante, é gerado quando a entrada excede um certo limite. A função que recebe um sinal de entrada e produz um sinal de saída é chamada de função de ativação. Como é mostrado na figura \ref{ativaçãoF}, quando o sinal de entrada é pequeno, a saída é 0, e quando o valor de entrada supera um certo limite, uma saída diferente de 0 aparece. Por isso é que a resposta de um neurónio biológico e de um neurónio artificial (nós) são semelhantes. No entanto, as redes neurais artificiais usam diferentes funções de ativação, a maioria usa funções sigmoide \ref{sigmoidF}. Como vantagem, as funções sigmoide são simples de calcular em comparação com outras funções.
